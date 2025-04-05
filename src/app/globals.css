@@ -1,26 +1,19 @@
 @import 'tailwindcss';
 
-.prose h1 {
+h1 {
 	font-size: 2rem; /* Adjust size */
 	font-weight: bold; /* Adjust weight */
 	color: black; /* Change color */
 	margin-bottom: 10px;
 }
 
-.prose p {
+p {
 	margin-top: 0px;
 }
 
 :root {
 	--background: #ffffff;
 	--foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-	:root {
-		--background: #0a0a0a;
-		--foreground: #ededed;
-	}
 }
 
 body {
@@ -31,4 +24,11 @@ body {
 
 a {
 	text-decoration: underline;
+}
+
+/* tablet */
+@media screen and (max-width: 767px) {
+	h1 {
+		font-size: 1.3rem;
+	}
 }
