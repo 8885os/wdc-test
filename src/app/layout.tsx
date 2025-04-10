@@ -1,8 +1,10 @@
 import type { Metadata } from 'next'
 import './globals.css'
 import { inter } from './ui/fonts'
-import { Navbar } from './components/Navbar'
-import Sidebar from './components/Sidebar'
+import { Navbar } from '../components/Navbar'
+import Sidebar from '../components/Sidebar'
+import { DisableDraftMode } from '@/components/DisableDraftMode'
+import { VisualEditing } from 'next-sanity'
 
 export const metadata: Metadata = {
 	title: 'Create Next App',
@@ -21,6 +23,8 @@ export default function RootLayout({
 				<div className='ml-[63px] '>
 					<Navbar />
 					{children}
+					<VisualEditing />
+					<DisableDraftMode />
 				</div>
 			</body>
 		</html>

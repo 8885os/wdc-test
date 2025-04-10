@@ -1,7 +1,7 @@
 import React from 'react'
-import CaseStudies from '../components/CaseStudies'
+import CaseStudies from '../../components/CaseStudies'
 import { SanityDocument } from 'next-sanity'
-import { getClient } from '@/sanity/client'
+import { client } from '@/sanity/client'
 import { CASE_STUDIES_QUERY } from '@/lib/utils/queries'
 import { token } from '@/lib/utils/token'
 type PageProps = {
@@ -13,7 +13,6 @@ type PageProps = {
 export default async function caseStudy() {
 	const draftMode = true // Set this dynamically if needed
 
-	const client = getClient(draftMode ? token : undefined)
 	const caseStudies = await client.fetch<SanityDocument[]>(CASE_STUDIES_QUERY)
 
 	// ✅ Pass props as usual
