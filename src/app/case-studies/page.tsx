@@ -13,7 +13,15 @@ type PageProps = {
 export default async function caseStudy() {
 	const draftMode = true // Set this dynamically if needed
 
-	const caseStudies = await client.fetch<SanityDocument[]>(CASE_STUDIES_QUERY)
+	const caseStudies = await client.fetch<SanityDocument[]>(
+		CASE_STUDIES_QUERY,
+		{},
+		{
+			perspective: draftMode ? 'previewDrafts' : 'published',
+			useCdn: !draftMode,
+			stega: draftMode,
+		}
+	)
 
 	// ✅ Pass props as usual
 	const props: PageProps = {

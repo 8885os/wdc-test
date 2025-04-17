@@ -1,23 +1,25 @@
 'use client'
 
-import { useEffect, useState, useTransition } from 'react'
+import { useEffect, useState } from 'react'
+import { useTransition } from 'react'
 import { useRouter } from 'next/navigation'
 import { disableDraftMode } from '@/app/actions'
 
 export function DisableDraftMode() {
 	const router = useRouter()
 	const [pending, startTransition] = useTransition()
-	const [shouldRender, setShouldRender] = useState(true)
+	const [isClient, setIsClient] = useState(false)
 
+	// Ensure this logic only runs on the client-side
 	useEffect(() => {
-		if (window !== window.parent || !!window.opener) {
-			setShouldRender(false)
-		}
+		setIsClient(true)
 	}, [])
 
-	if (!shouldRender) {
+	// Guard clause to make sure we're in the client-side
+	if (!isClient || window !== window.parent || !!window.opener) {
 		return null
 	}
+
 	const disable = () =>
 		startTransition(async () => {
 			await disableDraftMode()

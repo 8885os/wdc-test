@@ -1,6 +1,7 @@
 @import 'tailwindcss';
 
-h1 {
+h1,
+h2 {
 	font-size: 2rem; /* Adjust size */
 	font-weight: bold; /* Adjust weight */
 	color: black; /* Change color */
@@ -28,7 +29,8 @@ a {
 
 /* tablet */
 @media screen and (max-width: 767px) {
-	h1 {
+	h1,
+	h2 {
 		font-size: 1.3rem;
 	}
 }
