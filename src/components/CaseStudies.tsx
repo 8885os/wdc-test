@@ -22,7 +22,9 @@ const CaseStudies = ({ caseStudies }: { caseStudies: SanityDocument[] }) => {
 						</Link>
 
 						<div className='flex flex-col pr-4  md:w-3/4 md:pl-4'>
-							<Link href={`/case-studies/${caseStudy.slug.current}`}>
+							<Link
+								href={`/case-studies/${caseStudy.slug.current}`}
+								className='no-underline'>
 								<h2>{caseStudy.title}</h2>
 							</Link>
 							<div className=' max-w-[95%] md:max-w-[80%]'>

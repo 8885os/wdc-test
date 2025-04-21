@@ -21,7 +21,7 @@ export default async function RootLayout({
 		<html lang='en'>
 			<body className={`${inter.className} antialiased`}>
 				<Sidebar />
-				<div className='ml-[63px] '>
+				<div className='ml-[63px] overflow-hidden min-h-screen'>
 					<Navbar />
 					{children}
 					{(await draftMode()).isEnabled && (
