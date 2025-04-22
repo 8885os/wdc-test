@@ -6,6 +6,7 @@ import Sidebar from '../components/Sidebar'
 import { DisableDraftMode } from '@/components/DisableDraftMode'
 import { VisualEditing } from 'next-sanity'
 import { draftMode } from 'next/headers'
+import { SpeedInsights } from '@vercel/speed-insights/next'
 
 export const metadata: Metadata = {
 	title: 'Create Next App',
@@ -24,6 +25,7 @@ export default async function RootLayout({
 				<div className='ml-[63px] overflow-hidden min-h-screen'>
 					<Navbar />
 					{children}
+					<SpeedInsights />
 					{(await draftMode()).isEnabled && (
 						<>
 							<VisualEditing />
