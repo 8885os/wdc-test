@@ -10,6 +10,7 @@ export default function Home() {
 		<div>
 			<div className='relative w-full h-[60vh] overflow-hidden'>
 				<Image
+					priority
 					className='mt-8 absolute animate-[var(--animate-background)] w-full object-cover'
 					src='/hero.jpg'
 					alt='WDC Logo'

@@ -69,7 +69,7 @@ export const Navbar = () => {
 						<input
 							type='submit'
 							aria-label='Search'
-							className='border-[#aab8b3] border-[1px] w-button bg-[url(https://cdn.prod.website-files.com/5dfa188…/62ff4fc…_search-btn.svg)] bg-[12px] bg-no-repeat rounded-[100px] w-[30px] h-[30px] ml-[5px] p-[4px]'
+							className='border-[#aab8b3] border-[1px] w-button bg-[12px] bg-no-repeat rounded-[100px] w-[30px] h-[30px] ml-[5px] p-[4px]'
 							value=''
 						/>
 					</form>
