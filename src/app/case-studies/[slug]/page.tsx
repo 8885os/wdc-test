@@ -4,6 +4,17 @@ import Image from 'next/image'
 import { urlFor } from '@/lib/utils/image'
 import { CURRENT_STUDY_QUERY } from '@/lib/utils/queries'
 
+export const revalidate = 60
+
+export async function generateStaticParams() {
+	const caseStudies = await client.fetch<{ slug: string }[]>(
+		`*[_type == "caseStudy" && defined(slug.current)]{ "slug": slug.current }`,
+		{},
+		{ perspective: 'published', useCdn: true }
+	)
+	return caseStudies.map((cs) => ({ slug: cs.slug }))
+}
+
 const query = CURRENT_STUDY_QUERY
 
 export default async function Page({
