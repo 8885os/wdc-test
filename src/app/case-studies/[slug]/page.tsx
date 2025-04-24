@@ -17,15 +17,25 @@ export async function generateStaticParams() {
 
 const query = CURRENT_STUDY_QUERY
 
-export async function generateMetadata() {
+export async function generateMetadata({
+	params,
+}: {
+	params: Promise<{ slug: string }>
+}) {
+	const { slug } = await params // Await the params Promise
+	// Add SEO info if needed
 	return {
-		// add SEO info if needed
+		title: `Case Study: ${slug}`, // Example metadata
 	}
 }
 
-export default async function Page({ params }: { params: { slug: string } }) {
+export default async function Page({
+	params,
+}: {
+	params: Promise<{ slug: string }>
+}) {
 	const { isEnabled } = await draftMode()
-	const { slug } = params
+	const { slug } = await params // Await the params Promise
 
 	const data = await client.fetch(
 		query,
