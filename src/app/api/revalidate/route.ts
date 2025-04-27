@@ -7,6 +7,19 @@ interface WebhookPayload {
 	slug?: { current: string }
 	isManual?: boolean // To check if it's a manual revalidation request
 }
+const corsHeaders = {
+	'Access-Control-Allow-Origin': 'https://wdc-test.sanity.studio',
+	'Access-Control-Allow-Methods': 'POST, OPTIONS',
+	'Access-Control-Allow-Headers': 'Content-Type, x-sanity-webhook-secret',
+}
+
+// Handle preflight OPTIONS request
+export async function OPTIONS() {
+	return new Response(null, {
+		status: 204,
+		headers: corsHeaders,
+	})
+}
 
 export async function POST(req: NextRequest) {
 	const allowedOrigin = 'https://wdc-test.sanity.studio'
