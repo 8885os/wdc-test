@@ -13,8 +13,10 @@ const CaseStudies = ({ caseStudies }: { caseStudies: SanityDocument[] }) => {
 						<Link href={`/case-studies/${caseStudy.slug.current}`}>
 							<div className='relative h-[100px] w-[200px] md:h-[200px] md:min-w-[250px] max-h-[200px]'>
 								<Image
-									fill
-									src={urlFor(caseStudy.image).width(1200).url()}
+									width={500}
+									height={500}
+									className='w-full h-full object-cover'
+									src={urlFor(caseStudy.image).url()}
 									alt='Case study thumbnail'
 									style={{ objectFit: 'cover' }}
 								/>
