@@ -31,7 +31,7 @@ export function DisableDraftMode() {
 			{pending ? (
 				'Disabling draft mode...'
 			) : (
-				<div className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white'>
+				<div className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white shadow-md'>
 					<div className='w-full h-full relative  p-4'>
 						<button type='button' onClick={disable} className='p-4'>
 							You are in draft mode. Click to disable
