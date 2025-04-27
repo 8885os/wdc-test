@@ -9,6 +9,12 @@ interface WebhookPayload {
 }
 
 export async function POST(req: NextRequest) {
+	const allowedOrigin = 'https://wdc-test.sanity.studio'
+
+	const origin = req.headers.get('origin')
+	if (origin && origin !== allowedOrigin) {
+		return NextResponse.json({ message: 'Origin not allowed' }, { status: 403 })
+	}
 	// Verify webhook secret
 	const secret = req.headers.get('x-sanity-webhook-secret')
 	const isStaging = secret === process.env.SANITY_WEBHOOK_SECRET_STAGING
