@@ -9,7 +9,6 @@ export default function Home() {
 	return (
 		<div>
 			<div className='relative w-full h-[60vh] overflow-hidden'>
-				test
 				<Image
 					priority
 					className='mt-8 absolute animate-[var(--animate-background)] w-full object-cover'
