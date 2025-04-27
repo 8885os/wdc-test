@@ -8,6 +8,8 @@ interface WebhookPayload {
 }
 
 export async function POST(req: NextRequest) {
+	console.log('revalidate')
+
 	// Verify webhook secret
 	const secret = req.headers.get('x-sanity-webhook-secret')
 	const isStaging = secret === process.env.SANITY_WEBHOOK_SECRET_STAGING
